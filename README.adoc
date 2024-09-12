@@ -35,15 +35,6 @@ Note the URL displayed after `Your application is now live here`.
 
 == Client [[client]]
 
-=== Download Python WebSocket Client
-
-Python 3 required for https://pypi.org/project/websocket_client/[websocket_client].
-
-[source%nowrap,bash]
-----
-wget https://github.com/websocket-client/websocket-client/raw/master/bin/wsdump.py
-----
-
 === Connect with Python WebSocket Client
 
 [source%nowrap,bash]
