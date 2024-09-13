@@ -202,15 +202,17 @@ def main() -> None:
                 except:
                     pass
 
+            isByte = None
             if isinstance(data, bytes):
                 data = repr(data)
+                isByte = True
 
             if args.verbose:
                 msg = f"{websocket.ABNF.OPCODE_MAP.get(opcode)}: {data}"
             else:
                 msg = data
 
-            if msg is not None:
+            if (msg is not None) and (not isByte):
                 if args.timings:
                     console.write(f"{time.time() - start_time}: {msg}")
                 else:
