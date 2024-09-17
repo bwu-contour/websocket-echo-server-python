@@ -117,10 +117,12 @@ class RawInput:
 
 class InteractiveConsole(RawInput, code.InteractiveConsole):
     def write(self, data: str) -> None:
-        sys.stdout.write("\033[2K\033[E")
+        # Windows server 2016 can't rendor ANSI colors, so use default colors instead of blue
+        # sys.stdout.write("\033[2K\033[E")
         # sys.stdout.write("\n")
-        sys.stdout.write("\033[34m< " + data + "\033[39m")
-        sys.stdout.write("\n> ")
+        # sys.stdout.write("\033[34m< " + data + "\033[39m")
+        sys.stdout.write("< " + data)
+        sys.stdout.write("\n")
         sys.stdout.flush()
 
     def read(self) -> str:
