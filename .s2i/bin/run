@@ -1,0 +1,2 @@
+# Entrypoint
+python ../../wsecho.py
