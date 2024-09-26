@@ -1,11 +1,15 @@
 import pytest
 import websocket
+import ssl
 
 ENDPOINT = "ws://127.0.0.1:8080/websocket"
 
 @pytest.fixture
 def websocket_client():
-    ws = websocket.WebSocket()
+    if "wss" in ENDPOINT.lower():
+        ws = websocket.WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+    else:
+        ws = websocket.WebSocket()
     ws.connect(ENDPOINT)  # WebSocket server address
     yield ws
     ws.close()
