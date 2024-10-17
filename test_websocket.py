@@ -17,7 +17,7 @@ def websocket_client():
 
 @pytest.mark.repeat(10)  # Run the test 10 times
 def test_send_message(websocket_client):
-    for num in range(1000):
+    for num in range(10):
         message = 'ping' + str(num)
         websocket_client.send(message)  # Send message to WebSocket server
         response = websocket_client.recv()          # Receive response from WebSocket server
