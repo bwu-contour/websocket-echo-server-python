@@ -1,7 +1,6 @@
 import pytest
 import websocket
 import ssl
-import platform
 
 ENDPOINT = "ws://127.0.0.1:8080/websocket"
 
@@ -22,5 +21,3 @@ def test_send_message(websocket_client):
         websocket_client.send(message)  # Send message to WebSocket server
         response = websocket_client.recv()          # Receive response from WebSocket server
         assert response == 'ping' + str(num)  # Verify response
-        
-    print("This request is being served by server: " + platform.node())
